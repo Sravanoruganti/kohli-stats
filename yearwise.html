@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year-wise Stats — Virat Kohli | VK18 Archive</title>
+<meta name="description" content="Virat Kohli's year-by-year stats: matches, runs and centuries across his international career.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .stats-table-wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+  table.stats-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 640px; }
+  table.stats-table thead th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--off-white-dim);
+    padding: 0.9rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+    background: #08141F;
+  }
+  table.stats-table td {
+    padding: 0.9rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--off-white);
+  }
+  table.stats-table tbody tr:hover { background: var(--navy-card-hi); }
+  table.stats-table td.year { font-family: var(--font-display); color: var(--gold); font-weight: 600; }
+  table.stats-table td.note { color: var(--off-white-dim); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">VK<span class="num">18</span> ARCHIVE</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="childhood.html">Childhood</a>
+      <a href="yearwise.html" class="active">Year-wise Stats</a>
+      <a href="milestones.html">Milestones</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom: 1.5rem;">
+  <div class="hero-inner">
+    <div class="eyebrow">2008 – <span id="statsDate">—</span></div>
+    <h1 style="font-size: clamp(2rem, 6vw, 3.6rem);">Year-wise <span class="accent">Stats</span></h1>
+    <p class="hero-sub">International matches, runs and centuries broken down year by year. Figures combine Test, ODI and T20I cricket.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top: 0;">
+  <div class="stats-table-wrap">
+    <table class="stats-table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Matches</th>
+          <th>Runs</th>
+          <th>Centuries</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="yearWiseBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<div class="ad-slot">Ad space — e.g. Google AdSense unit (728×90 / responsive)</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>VK18 Archive — an independent fan-made stats project.</span>
+    <span>Data sourced from ESPNcricinfo, ICC &amp; Wikipedia · Last updated <span id="footerDate">—</span></span>
+  </div>
+  <p class="disclaimer">This is an unofficial, fan-made statistics website. Not affiliated with Virat Kohli, the BCCI, RCB, or the ICC. All trademarks belong to their respective owners. Stats are compiled from public sources and may lag behind the very latest matches. Year-wise figures are approximate aggregates pending full statistical verification.</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.getElementById("yearWiseBody");
+  body.innerHTML = SITE_DATA.yearWise.map(y => `
+    <tr>
+      <td class="year">${y.year}</td>
+      <td>${y.matches}</td>
+      <td>${y.runs.toLocaleString()}</td>
+      <td>${y.centuries}</td>
+      <td class="note">${y.note}</td>
+    </tr>
+  `).join("");
+});
+</script>
+</body>
+</html>

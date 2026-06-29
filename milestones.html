@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Major Milestones — Virat Kohli | VK18 Archive</title>
+<meta name="description" content="The defining moments of Virat Kohli's career: World Cups, captaincy landmarks, record centuries and retirements.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">VK<span class="num">18</span> ARCHIVE</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="childhood.html">Childhood</a>
+      <a href="yearwise.html">Year-wise Stats</a>
+      <a href="milestones.html" class="active">Milestones</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom: 1.5rem;">
+  <div class="hero-inner">
+    <div class="eyebrow">2008 – 2026</div>
+    <h1 style="font-size: clamp(2rem, 6vw, 3.6rem);">Major <span class="accent">Milestones</span></h1>
+    <p class="hero-sub">The moments that defined a career — World Cups, captaincy landmarks, record-breaking centuries, and the retirements that closed each chapter.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top: 0;">
+  <div class="timeline" id="milestonesTimeline"></div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>VK18 Archive — an independent fan-made stats project.</span>
+    <span>Data sourced from ESPNcricinfo, ICC &amp; Wikipedia · Last updated <span id="footerDate">—</span></span>
+  </div>
+  <p class="disclaimer">This is an unofficial, fan-made statistics website. Not affiliated with Virat Kohli, the BCCI, RCB, or the ICC. All trademarks belong to their respective owners. Stats are compiled from public sources and may lag behind the very latest matches.</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.getElementById("milestonesTimeline");
+  el.innerHTML = SITE_DATA.milestones.map(item => `
+    <div class="timeline-item">
+      <div class="timeline-year">${item.year}</div>
+      <h3>${item.title}</h3>
+      <p>${item.text}</p>
+    </div>
+  `).join("");
+});
+</script>
+</body>
+</html>

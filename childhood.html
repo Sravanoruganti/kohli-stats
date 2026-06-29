@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Childhood Timeline — Virat Kohli | VK18 Archive</title>
+<meta name="description" content="Virat Kohli's early years: from West Delhi Cricket Academy to his first-class debut for Delhi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">VK<span class="num">18</span> ARCHIVE</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="childhood.html" class="active">Childhood</a>
+      <a href="yearwise.html">Year-wise Stats</a>
+      <a href="milestones.html">Milestones</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom: 1.5rem;">
+  <div class="hero-inner">
+    <div class="eyebrow">1988 – 2006</div>
+    <h1 style="font-size: clamp(2rem, 6vw, 3.6rem);">Childhood <span class="accent">Timeline</span></h1>
+    <p class="hero-sub">Before the centuries and the captaincy — the Delhi years that built the foundation.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top: 0;">
+  <div class="timeline" id="childhoodTimeline"></div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>VK18 Archive — an independent fan-made stats project.</span>
+    <span>Data sourced from ESPNcricinfo, ICC &amp; Wikipedia · Last updated <span id="footerDate">—</span></span>
+  </div>
+  <p class="disclaimer">This is an unofficial, fan-made statistics website. Not affiliated with Virat Kohli, the BCCI, RCB, or the ICC. All trademarks belong to their respective owners. Stats are compiled from public sources and may lag behind the very latest matches.</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.getElementById("childhoodTimeline");
+  el.innerHTML = SITE_DATA.childhood.map(item => `
+    <div class="timeline-item">
+      <div class="timeline-year">${item.year} <span class="timeline-age">Age ${item.age}</span></div>
+      <h3>${item.title}</h3>
+      <p>${item.text}</p>
+    </div>
+  `).join("");
+});
+</script>
+</body>
+</html>
